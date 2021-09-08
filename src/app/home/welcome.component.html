@@ -1,0 +1,52 @@
+﻿<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <div class="container-fluid">
+      <div class="text-center">
+        <!-- <img src="./assets/images/logo.jpg"
+             class="img-responsive center-block"
+             style="max-height:300px;padding-bottom:50px" /> -->
+             <ngb-carousel *ngIf="images">
+              <ng-template ngbSlide>
+                <div class="wrapper">
+                  <img [src]="images[0]" alt="Random first slide">
+                </div>
+                <div class="carousel-caption">
+                  <h3>New Products On Demand</h3>
+                  <p> I always say shopping is cheaper than a psychiatrist. </p>
+                </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                <div class="wrapper">
+                  <img [src]="images[1]" alt="Random second slide">
+                </div>
+                <div class="carousel-caption">
+                  <h3>Live You Life With Style</h3>
+                  <p> I shop, therefore I am.</p>
+                </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                <div class="wrapper">
+                  <img [src]="images[2]"  alt="Random third slide">
+                </div>
+                <div class="carousel-caption">
+                  <h3>We Care, We Dare</h3>
+                  <p>Shopping is my cardio</p>
+                </div>
+              </ng-template>
+            </ngb-carousel>
+      </div>
+
+      <div class="text-center">Developed by:</div>
+      <div class="text-center">
+        <h3>Koyel Roy</h3>
+      </div>
+
+      <div class="text-center">
+        <a href="javascript:void(0)">Shopping Web</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<p>Hi {{user}}, your wishlist products are given below</p>
+
+<div class='table-responsive' *ngIf="products.length > 0; else noProduct">
+    <table class='table'
+           *ngIf='products.length'>
+      <thead>
+        <tr>
+          <th>
+          </th>
+          <th>Product</th>
+          <th>Available</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let product of products'>
+          <td>
+            <img *ngIf='showImage'
+                 [src]='product.imageUrl'
+                 [title]='product.productName'
+                 [style.width.px]='imageWidth'
+                 [style.margin.px]='imageMargin'>
+          </td>
+          <td>
+            <a [routerLink]="['/products', product.productId]">
+              {{ product.productName }}
+            </a>
+          </td>
+          <td>{{ product.releaseDate }}</td>
+          <td>{{ product.price | currency:'USD':'symbol':'1.2-2'}}</td>
+          <td><input type="number" name="quantity" id="quantity" min="0" max="5" size="4" value="0" #quantityRef /></td> 
+          <td><button class="btn btn-warning" (click)="moveToCart(product.productId, quantityRef.value)">Move To Cart</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<ng-template #noProduct>
+    No Products Available, start adding favorites
+</ng-template>
